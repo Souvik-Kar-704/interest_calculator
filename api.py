@@ -20,4 +20,10 @@ def read_root():
 
 @app.get("/simple/{amount}/{rate}/{time}")
 def calc(amount: float, rate:float, time: float):
-    return amount*rate*time
+    return amount*(rate/100)*time
+
+@app.get("/compound/{amount}/{rate}/{time}")
+def calc(amount: float, rate:float, time: float):
+    return amount*(Math.pow((1+(rate/100)),time))- amount
+
+
